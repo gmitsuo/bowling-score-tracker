@@ -61,6 +61,7 @@ public class LastFrame extends Frame {
 		throw new BowlingGameException(String.format("Cannot add bonus play to last frame without a strike or spare. Frame id: %s.", this.id));
 	}
 
+	@Override
 	protected void sumFramePinfalls() {
 		super.sumFramePinfalls();
 		this.score += this.thirdPlay != null && !FOUL.equals(this.thirdPlay) ? parseInt(this.thirdPlay) : 0;
