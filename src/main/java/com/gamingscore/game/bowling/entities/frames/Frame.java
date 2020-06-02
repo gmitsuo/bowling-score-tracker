@@ -47,14 +47,17 @@ public class Frame {
 
 	private void checkSecondPlayConstraints() {
 
-		if (STRIKE.equals(firstPlay))
+		if (STRIKE.equals(firstPlay)) {
 			throw new BowlingGameException(String.format("Cannot add second play to frame with a strike. Frame id: %s.", this.id));
+		}
 
-		if (FOUL.equals(firstPlay) || FOUL.equals(secondPlay))
+		if (FOUL.equals(firstPlay) || FOUL.equals(secondPlay)) {
 			return;
+		}
 
-		if (parseInt(firstPlay) + parseInt(secondPlay) > 10)
+		if (parseInt(firstPlay) + parseInt(secondPlay) > 10) {
 			throw new BowlingGameException(String.format("The sum of plays cannot be higher than 10. Frame id: %s.", this.id));
+		}
 	}
 
 	public boolean isComplete() {
@@ -65,8 +68,9 @@ public class Frame {
 
 		sumFramePinfalls();
 
-		if (this.previous != null)
+		if (this.previous != null) {
 			this.previous.addSpareBonus(this);
+		}
 	}
 
 	protected String getFirstPlay() {
@@ -84,33 +88,40 @@ public class Frame {
 
 	protected void addSpareBonus(Frame nextFrame) {
 
-		if (this.isSpare() && !FOUL.equals(nextFrame.getFirstPlay()))
+		if (this.isSpare() && !FOUL.equals(nextFrame.getFirstPlay())) {
 			this.score += parseInt(nextFrame.getFirstPlay());
+		}
 
-		if (this.previous != null)
+		if (this.previous != null) {
 			this.previous.addStrikeBonus(this, nextFrame);
+		}
 	}
 
 	protected void addStrikeBonus(Frame firstNext, Frame secondNext) {
 
-		if (!this.isStrike())
+		if (!this.isStrike()) {
 			return;
+		}
 
 		this.score += !FOUL.equals(firstNext.getFirstPlay()) ? parseInt(firstNext.getFirstPlay()) : 0;
 
-		if (!firstNext.isStrike())
+		if (!firstNext.isStrike()) {
 			this.score += !FOUL.equals(firstNext.getSecondPlay()) ? parseInt(firstNext.getSecondPlay()) : 0;
-		else
+		}
+		else {
 			this.score += !FOUL.equals(secondNext.getFirstPlay()) ? parseInt(secondNext.getFirstPlay()) : 0;
+		}
 	}
 
 	protected boolean isSpare() {
 
-		if (this.isStrike())
+		if (this.isStrike()) {
 			return false;
+		}
 
-		if (this.secondPlay == null)
+		if (this.secondPlay == null) {
 			return false;
+		}
 
 		return !FOUL.equals(this.firstPlay) && !FOUL.equals(this.secondPlay) &&
 				((parseInt(this.firstPlay) + parseInt(this.secondPlay)) == 10);

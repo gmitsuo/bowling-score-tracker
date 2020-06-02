@@ -34,8 +34,9 @@ public class BowlingPlayerScoring {
 
 	public void addPlay(BowlingRoundResult roundResult) {
 
-		if (currentFrameId > 10)
+		if (currentFrameId > 10) {
 			throw new BowlingGameException(String.format("Bowling games must have only 10 frames per player. Player %s has more than 10 frames", this.player.getName()));
+		}
 
 		this.currentFrame.addPlay(roundResult.getPinFalls());
 
@@ -48,17 +49,21 @@ public class BowlingPlayerScoring {
 
 	private Frame getNextFrame(Integer frameId) {
 
-		if (this.currentFrameId > LAST_FRAME)
+		if (this.currentFrameId > LAST_FRAME) {
 			return null;
+		}
 
 		Frame nextFrame;
 
-		if (frameId < LAST_FRAME-1)
+		if (frameId < LAST_FRAME-1) {
 			nextFrame = new Frame(frameId);
-		else if (frameId == LAST_FRAME - 1)
+		}
+		else if (frameId == LAST_FRAME - 1) {
 			nextFrame = new BeforeLastFrame();
-		else
+		}
+		else {
 			nextFrame = new LastFrame();
+		}
 
 		nextFrame.setPrevious(currentFrame);
 		return nextFrame;

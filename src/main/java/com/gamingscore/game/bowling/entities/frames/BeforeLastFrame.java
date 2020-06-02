@@ -19,8 +19,9 @@ public class BeforeLastFrame extends Frame {
 
 	private void addStrikeBonus(Frame nextFrame) {
 
-		if (!this.isStrike())
+		if (!this.isStrike()) {
 			return;
+		}
 
 		this.score += !FOUL.equals(nextFrame.getFirstPlay()) ? parseInt(nextFrame.getFirstPlay()) : 0;
 		this.score += !FOUL.equals(nextFrame.getSecondPlay()) ? parseInt(nextFrame.getSecondPlay()) : 0;

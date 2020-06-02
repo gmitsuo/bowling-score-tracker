@@ -13,8 +13,9 @@ public class Application {
 
     public static void main(String[] args) {
 
-        if (args == null || args.length != 1)
+        if (args == null || args.length != 1) {
             throw new IllegalArgumentException("Text file input argument is missing");
+        }
 
         File file = new File(args[0]);
 

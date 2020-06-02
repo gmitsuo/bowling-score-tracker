@@ -43,17 +43,20 @@ public class LastFrame extends Frame {
 
 	private void checkSecondPlayConstraints() {
 
-		if (STRIKE.equals(firstPlay) || FOUL.equals(firstPlay) || FOUL.equals(secondPlay))
+		if (STRIKE.equals(firstPlay) || FOUL.equals(firstPlay) || FOUL.equals(secondPlay)) {
 			return;
+		}
 
-		if (parseInt(firstPlay) + parseInt(secondPlay) > 10)
+		if (parseInt(firstPlay) + parseInt(secondPlay) > 10) {
 			throw new BowlingGameException(String.format("The sum of plays cannot be higher than 10. Frame id: %s.", this.id));
+		}
 	}
 
 	private void checkThirdPlayConstraints() {
 
-		if (this.isStrike() || this.isSpare())
+		if (this.isStrike() || this.isSpare()) {
 			return;
+		}
 
 		throw new BowlingGameException(String.format("Cannot add bonus play to last frame without a strike or spare. Frame id: %s.", this.id));
 	}
