@@ -26,7 +26,7 @@ class BowlingInputCheckerTest {
 		assertThatExceptionOfType(BowlingGameInputException.class)
 		.isThrownBy(() -> bowlingInputChecker.checkInput(lineIdx, input))
 		.withMessage("Invalid game input at line "+ lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). " +
-				"First value must be player name. Second value must be a number between 0 and 10 or an 'F'.");
+				"First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.");
 	}
 
 	@Test
@@ -38,7 +38,7 @@ class BowlingInputCheckerTest {
 		assertThatExceptionOfType(BowlingGameInputException.class)
 		.isThrownBy(() -> bowlingInputChecker.checkInput(lineIdx, input))
 		.withMessage("Invalid game input at line " + lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). " +
-				"First value must be player name. Second value must be a number between 0 and 10 or an 'F'.");
+				"First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.");
 	}
 
 	@Test
@@ -50,7 +50,7 @@ class BowlingInputCheckerTest {
 		assertThatExceptionOfType(BowlingGameInputException.class)
 		.isThrownBy(() -> bowlingInputChecker.checkInput(lineIdx, input))
 		.withMessage("Invalid game input at line " + lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). " +
-				"First value must be player name. Second value must be a number between 0 and 10 or an 'F'.");
+				"First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.");
 	}
 
 	@Test
@@ -61,7 +61,7 @@ class BowlingInputCheckerTest {
 
 		assertThatExceptionOfType(BowlingGameInputException.class)
 		.isThrownBy(() -> bowlingInputChecker.checkInput(lineIdx, input))
-		.withMessage("Invalid game input at line " + lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). The second value must be a between 0 and 10.");
+		.withMessage("Invalid game input at line " + lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). The second value must be between 0 and 10.");
 	}
 
 	@Test
@@ -73,7 +73,7 @@ class BowlingInputCheckerTest {
 		assertThatExceptionOfType(BowlingGameInputException.class)
 		.isThrownBy(() -> bowlingInputChecker.checkInput(lineIdx, input))
 		.withMessage("Invalid game input at line " + lineIdx + ". Input must contain exactly two values separated by a tab (no leading or trailing spaces). " +
-				"First value must be player name. Second value must be a number between 0 and 10 or an 'F'.");
+				"First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.");
 	}
 
 }

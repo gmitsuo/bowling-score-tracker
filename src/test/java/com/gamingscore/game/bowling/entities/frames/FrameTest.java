@@ -37,7 +37,7 @@ class FrameTest {
 
 		assertThatExceptionOfType(BowlingGameException.class)
 				.isThrownBy(() -> frame.addPlay(FOUL))
-				.withMessage("Frames up until last one must have a maximum of 2 plays.");
+				.withMessage("Frames up until the last one must have a maximum of 2 plays.");
 	}
 
 	@Test

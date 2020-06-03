@@ -41,7 +41,7 @@ public class Frame {
 			this.checkSecondPlayConstraints();
 		}
 		else {
-			throw new BowlingGameException("Frames up until last one must have a maximum of 2 plays.");
+			throw new BowlingGameException("Frames up until the last one must have a maximum of 2 plays.");
 		}
 	}
 
