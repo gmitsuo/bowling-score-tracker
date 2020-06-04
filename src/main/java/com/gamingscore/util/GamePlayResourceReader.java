@@ -28,6 +28,8 @@ public class GamePlayResourceReader {
 			.map(inputRow -> gameController.checkInput(lineIdx.getAndIncrement(), inputRow))
 			.map(gameController::toGameRound)
 			.forEach(gameController::playRound);
+
+			gameController.finish();
 		}
 		catch (IOException e) {
 			throw new RuntimeException("Unable to read file input", e);

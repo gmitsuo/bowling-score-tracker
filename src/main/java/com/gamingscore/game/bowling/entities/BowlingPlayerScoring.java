@@ -1,11 +1,13 @@
 package com.gamingscore.game.bowling.entities;
 
-import com.gamingscore.game.bowling.entities.frames.BeforeLastFrame;
 import com.gamingscore.game.bowling.entities.frames.Frame;
 import com.gamingscore.game.bowling.entities.frames.LastFrame;
 import com.gamingscore.game.bowling.exception.BowlingGameException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class BowlingPlayerScoring {
 
@@ -28,7 +30,7 @@ public class BowlingPlayerScoring {
 		return this.player.getName();
 	}
 
-	public Collection<Frame> getFrames() {
+	public List<Frame> getFrames() {
 		return frames;
 	}
 
@@ -41,7 +43,6 @@ public class BowlingPlayerScoring {
 		this.currentFrame.addPlay(roundResult.getPinFalls());
 
 		if (currentFrame.isComplete()) {
-			this.currentFrame.calculateScore();
 			this.frames.add(currentFrame);
 			this.currentFrame = getNextFrame(++currentFrameId);
 		}
@@ -55,11 +56,8 @@ public class BowlingPlayerScoring {
 
 		Frame nextFrame;
 
-		if (frameId < LAST_FRAME-1) {
+		if (frameId < LAST_FRAME) {
 			nextFrame = new Frame(frameId);
-		}
-		else if (frameId == LAST_FRAME - 1) {
-			nextFrame = new BeforeLastFrame();
 		}
 		else {
 			nextFrame = new LastFrame();

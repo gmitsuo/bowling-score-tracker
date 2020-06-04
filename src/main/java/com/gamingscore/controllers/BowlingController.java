@@ -39,6 +39,11 @@ public final class BowlingController implements GameController<BowlingRound> {
 	}
 
 	@Override
+	public void finish() {
+		bowlingGame.calculateScores();
+	}
+
+	@Override
 	public void disployResults() {
 		bowlingScoreDisplay.display(bowlingGame.getScores());
 	}

@@ -62,9 +62,8 @@ public class LastFrame extends Frame {
 	}
 
 	@Override
-	protected void sumFramePinfalls() {
-		super.sumFramePinfalls();
-		this.score += this.thirdPlay != null && !FOUL.equals(this.thirdPlay) ? parseInt(this.thirdPlay) : 0;
+	public Integer getPinfalls() {
+		return super.getPinfalls() + (this.thirdPlay != null && !FOUL.equals(this.thirdPlay) ? parseInt(this.thirdPlay) : 0);
 	}
 
 	@Override

@@ -23,5 +23,10 @@ public interface GameController<T> {
 	/**
 	 *
 	 */
+	void finish();
+
+	/**
+	 *
+	 */
 	void disployResults();
 }

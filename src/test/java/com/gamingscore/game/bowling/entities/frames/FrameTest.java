@@ -131,7 +131,7 @@ class FrameTest {
 		Frame frame = new Frame(2);
 		frame.addPlay("6");
 		frame.addPlay("3");
-		frame.sumFramePinfalls();
+		frame.getPinfalls();
 		assertThat(frame.getScore()).isEqualTo(9);
 	}
 
@@ -140,19 +140,19 @@ class FrameTest {
 
 		Frame beforePreviousStrike = new Frame(1);
 		beforePreviousStrike.addPlay("10");
-		beforePreviousStrike.calculateScore();
+		beforePreviousStrike.getPinfalls();
 
 		Frame previousSpare = new Frame(2);
 		previousSpare.addPlay("9");
 		previousSpare.addPlay("1");
 		previousSpare.setPrevious(beforePreviousStrike);
-		previousSpare.calculateScore();
+		previousSpare.getPinfalls();
 
 		Frame currentFrame = new Frame(3);
 		currentFrame.addPlay("7");
 		currentFrame.addPlay("2");
 		currentFrame.setPrevious(previousSpare);
-		currentFrame.calculateScore();
+		currentFrame.getPinfalls();
 
 		assertThat(currentFrame.getScore()).isEqualTo(9);
 		assertThat(previousSpare.getScore()).isEqualTo(17);
@@ -163,24 +163,24 @@ class FrameTest {
 	void addStrikeBonusForTwoConsecutivesStrikes() {
 		Frame beforePreviousStrike = new Frame(1);
 		beforePreviousStrike.addPlay("10");
-		beforePreviousStrike.calculateScore();
+		beforePreviousStrike.getPinfalls();
 
 		Frame previousStrike = new Frame(2);
 		previousStrike.addPlay("10");
 		previousStrike.setPrevious(beforePreviousStrike);
-		previousStrike.calculateScore();
+		previousStrike.getPinfalls();
 
 		Frame currentFrame = new Frame(3);
 		currentFrame.addPlay("7");
 		currentFrame.addPlay("2");
 		currentFrame.setPrevious(previousStrike);
-		currentFrame.calculateScore();
+		currentFrame.getPinfalls();
 
 		Frame nextFrame = new Frame(4);
 		nextFrame.addPlay("7");
 		nextFrame.addPlay("1");
 		nextFrame.setPrevious(currentFrame);
-		nextFrame.calculateScore();
+		nextFrame.getPinfalls();
 
 		assertThat(nextFrame.getScore()).isEqualTo(8);
 		assertThat(currentFrame.getScore()).isEqualTo(9);

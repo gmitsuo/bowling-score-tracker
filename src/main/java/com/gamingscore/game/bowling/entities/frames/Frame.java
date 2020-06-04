@@ -64,56 +64,24 @@ public class Frame {
 		return isStrike() || (firstPlay != null && secondPlay != null);
 	}
 
-	public void calculateScore() {
-
-		sumFramePinfalls();
-
-		if (this.previous != null) {
-			this.previous.addSpareBonus(this);
-		}
+	public Integer getPinfalls() {
+		return (!FOUL.equals(this.firstPlay) ? parseInt(this.firstPlay) : 0) +
+				(this.secondPlay != null && !FOUL.equals(this.secondPlay) ? parseInt(this.secondPlay) : 0);
 	}
 
-	protected String getFirstPlay() {
+	public void addScore(Integer bonusScore) {
+		this.score += bonusScore;
+	}
+
+	public String getFirstPlay() {
 		return firstPlay;
 	}
 
-	protected String getSecondPlay() {
+	public String getSecondPlay() {
 		return secondPlay;
 	}
 
-	protected void sumFramePinfalls() {
-		this.score += !FOUL.equals(this.firstPlay) ? parseInt(this.firstPlay) : 0;
-		this.score += this.secondPlay != null && !FOUL.equals(this.secondPlay) ? parseInt(this.secondPlay) : 0;
-	}
-
-	protected void addSpareBonus(Frame nextFrame) {
-
-		if (this.isSpare() && !FOUL.equals(nextFrame.getFirstPlay())) {
-			this.score += parseInt(nextFrame.getFirstPlay());
-		}
-
-		if (this.previous != null) {
-			this.previous.addStrikeBonus(this, nextFrame);
-		}
-	}
-
-	protected void addStrikeBonus(Frame firstNext, Frame secondNext) {
-
-		if (!this.isStrike()) {
-			return;
-		}
-
-		this.score += !FOUL.equals(firstNext.getFirstPlay()) ? parseInt(firstNext.getFirstPlay()) : 0;
-
-		if (!firstNext.isStrike()) {
-			this.score += !FOUL.equals(firstNext.getSecondPlay()) ? parseInt(firstNext.getSecondPlay()) : 0;
-		}
-		else {
-			this.score += !FOUL.equals(secondNext.getFirstPlay()) ? parseInt(secondNext.getFirstPlay()) : 0;
-		}
-	}
-
-	protected boolean isSpare() {
+	public boolean isSpare() {
 
 		if (this.isStrike()) {
 			return false;
@@ -127,7 +95,7 @@ public class Frame {
 				((parseInt(this.firstPlay) + parseInt(this.secondPlay)) == 10);
 	}
 
-	protected boolean isStrike() {
+	public boolean isStrike() {
 		return STRIKE.equals(firstPlay);
 	}
 

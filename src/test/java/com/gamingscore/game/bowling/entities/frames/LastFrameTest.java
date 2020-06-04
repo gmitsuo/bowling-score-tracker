@@ -59,8 +59,8 @@ class LastFrameTest {
 		frame.addPlay("9");
 		frame.addPlay("8");
 
-		frame.sumFramePinfalls();
-		assertThat(frame.getScore()).isEqualTo(27);
+		var pinfalls = frame.getPinfalls();
+		assertThat(pinfalls).isEqualTo(27);
 	}
 
 	@Test
