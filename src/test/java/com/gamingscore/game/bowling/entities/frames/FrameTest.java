@@ -127,12 +127,12 @@ class FrameTest {
 	}
 
 	@Test
-	void sumFramePinfalls() {
+	void getFramePinfalls() {
 		Frame frame = new Frame(2);
 		frame.addPlay("6");
 		frame.addPlay("3");
-		frame.getPinfalls();
-		assertThat(frame.getScore()).isEqualTo(9);
+
+		assertThat(frame.getPinfalls()).isEqualTo(9);
 	}
 
 	@Test
