@@ -63,7 +63,7 @@ public class LastFrame extends Frame {
 
 	@Override
 	public Integer getPinfalls() {
-		return super.getPinfalls() + (this.thirdPlay != null && !FOUL.equals(this.thirdPlay) ? parseInt(this.thirdPlay) : 0);
+		return super.getPinfalls() + (this.thirdPlay == null || FOUL.equals(this.thirdPlay) ? 0:  parseInt(this.thirdPlay));
 	}
 
 	@Override

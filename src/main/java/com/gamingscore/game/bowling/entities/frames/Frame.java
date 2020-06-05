@@ -65,8 +65,8 @@ public class Frame {
 	}
 
 	public Integer getPinfalls() {
-		return (!FOUL.equals(this.firstPlay) ? parseInt(this.firstPlay) : 0) +
-				(this.secondPlay != null && !FOUL.equals(this.secondPlay) ? parseInt(this.secondPlay) : 0);
+		return (FOUL.equals(this.firstPlay) ? 0 : parseInt(this.firstPlay)) +
+				(this.secondPlay == null || FOUL.equals(this.secondPlay) ? 0 :parseInt(this.secondPlay));
 	}
 
 	public void addScore(final Integer bonusScore) {
