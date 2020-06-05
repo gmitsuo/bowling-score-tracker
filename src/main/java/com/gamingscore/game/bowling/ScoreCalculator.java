@@ -24,14 +24,17 @@ public class ScoreCalculator {
 		final var pinfalls = frame.getPinfalls();
 		frame.addScore(pinfalls);
 
-		if (frame.isSpare() && next != null) {
-			final var spareBonus = !FOUL.equals(next.getFirstPlay()) ? parseInt(next.getFirstPlay()) : 0;
+		if (next == null)
+			return;
+
+		if (frame.isSpare()) {
+			final var spareBonus = FOUL.equals(next.getFirstPlay()) ? 0 : parseInt(next.getFirstPlay());
 			frame.addScore(spareBonus);
 		}
 		else if(frame.isStrike()) {
-			var strikeBonus = next != null && !FOUL.equals(next.getFirstPlay()) ? parseInt(next.getFirstPlay()) : 0;
-			strikeBonus += next != null && next.getSecondPlay() != null && !FOUL.equals(next.getSecondPlay()) ? parseInt(next.getSecondPlay()) : 0;
-			strikeBonus += next != null && next.getSecondPlay() == null && afterNext != null && !FOUL.equals(afterNext.getFirstPlay()) ? parseInt(afterNext.getFirstPlay()) : 0;
+			var strikeBonus = FOUL.equals(next.getFirstPlay()) ? 0: parseInt(next.getFirstPlay());
+			strikeBonus += next.getSecondPlay() == null || FOUL.equals(next.getSecondPlay()) ? 0 : parseInt(next.getSecondPlay());
+			strikeBonus += next.getSecondPlay() == null && afterNext != null && !FOUL.equals(afterNext.getFirstPlay()) ? parseInt(afterNext.getFirstPlay()) : 0;
 			frame.addScore(strikeBonus);
 		}
 	}
