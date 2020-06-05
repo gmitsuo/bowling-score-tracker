@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class BowlingGame {
 
-	final Map<String, BowlingPlayerScoring> scoring;
-	final ScoreCalculator scoreCalculator;
+	final private Map<String, BowlingPlayerScoring> scoring;
+	final private ScoreCalculator scoreCalculator;
 
 	public BowlingGame() {
 		this.scoring = new HashMap<>();
