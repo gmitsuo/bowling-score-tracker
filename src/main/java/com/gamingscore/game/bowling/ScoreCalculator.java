@@ -24,8 +24,9 @@ public class ScoreCalculator {
 		final var pinfalls = frame.getPinfalls();
 		frame.addScore(pinfalls);
 
-		if (next == null)
+		if (next == null) {
 			return;
+		}
 
 		if (frame.isSpare()) {
 			final var spareBonus = FOUL.equals(next.getFirstPlay()) ? 0 : parseInt(next.getFirstPlay());
