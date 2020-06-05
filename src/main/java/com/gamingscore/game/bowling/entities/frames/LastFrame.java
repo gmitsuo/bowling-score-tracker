@@ -47,7 +47,7 @@ public class LastFrame extends Frame {
 			return;
 		}
 
-		if (parseInt(firstPlay) + parseInt(secondPlay) > 10) {
+		if (parseInt(firstPlay) + parseInt(secondPlay) > FRAME_PINFALL_LIMIT) {
 			throw new BowlingGameException(String.format("The sum of plays cannot be higher than 10. Frame id: %s.", this.id));
 		}
 	}

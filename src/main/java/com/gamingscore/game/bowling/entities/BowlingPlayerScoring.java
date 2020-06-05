@@ -36,7 +36,7 @@ public class BowlingPlayerScoring {
 
 	public void addPlay(final BowlingRoundResult roundResult) {
 
-		if (currentFrameId > 10) {
+		if (currentFrameId > LAST_FRAME) {
 			throw new BowlingGameException(String.format("Bowling games must have only 10 frames per player. Player %s has more than 10 frames", this.player.getName()));
 		}
 

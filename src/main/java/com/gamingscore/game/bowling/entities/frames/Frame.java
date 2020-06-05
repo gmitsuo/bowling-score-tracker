@@ -11,6 +11,8 @@ import static java.lang.Integer.parseInt;
 
 public class Frame {
 
+	protected static final int FRAME_PINFALL_LIMIT = 10;
+
 	protected final Integer id;
 
 	protected Integer score;
@@ -55,7 +57,7 @@ public class Frame {
 			return;
 		}
 
-		if (parseInt(firstPlay) + parseInt(secondPlay) > 10) {
+		if (parseInt(firstPlay) + parseInt(secondPlay) > FRAME_PINFALL_LIMIT) {
 			throw new BowlingGameException(String.format("The sum of plays cannot be higher than 10. Frame id: %s.", this.id));
 		}
 	}
