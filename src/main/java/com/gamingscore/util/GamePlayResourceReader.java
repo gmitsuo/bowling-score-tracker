@@ -13,11 +13,11 @@ public class GamePlayResourceReader {
 
 	private final GameControllerFactory gameControllerFactory;
 
-	public GamePlayResourceReader(GameControllerFactory gameControllerFactory) {
+	public GamePlayResourceReader(final GameControllerFactory gameControllerFactory) {
 		this.gameControllerFactory = gameControllerFactory;
 	}
 
-	public void play(InputStream resource, RoundBasedGame game) {
+	public void play(final InputStream resource, final RoundBasedGame game) {
 
 		final var lineIdx = new AtomicInteger(1);
 		final var gameController = gameControllerFactory.getGameController(game);

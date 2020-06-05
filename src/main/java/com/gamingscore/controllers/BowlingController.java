@@ -14,9 +14,9 @@ public final class BowlingController implements GameController<BowlingRound> {
 	private final BowlingScoreDisplay bowlingScoreDisplay;
 
 	BowlingController(
-			BowlingGame bowlingGame,
-			BowlingInputChecker bowlingInputChecker,
-			BowlingScoreDisplay bowlingScoreDisplay) {
+			final BowlingGame bowlingGame,
+			final BowlingInputChecker bowlingInputChecker,
+			final BowlingScoreDisplay bowlingScoreDisplay) {
 
 		this.bowlingGame = bowlingGame;
 		this.bowlingInputChecker = bowlingInputChecker;
@@ -24,17 +24,17 @@ public final class BowlingController implements GameController<BowlingRound> {
 	}
 
 	@Override
-	public String[] checkInput(int lineIdx, String inputRow) {
+	public String[] checkInput(final int lineIdx, final String inputRow) {
 		return bowlingInputChecker.checkInput(lineIdx, inputRow);
 	}
 
 	@Override
-	public BowlingRound toGameRound(String[] rowInputs) {
+	public BowlingRound toGameRound(final String... rowInputs) {
 		return new BowlingRound(rowInputs[0], new BowlingRoundResult(rowInputs[1]));
 	}
 
 	@Override
-	public void playRound(BowlingRound round) {
+	public void playRound(final BowlingRound round) {
 		bowlingGame.addRound(round);
 	}
 

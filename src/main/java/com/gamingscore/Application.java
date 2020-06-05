@@ -11,7 +11,7 @@ import static com.gamingscore.game.RoundBasedGame.BOWLING;
 
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         if (args == null || args.length != 1) {
             throw new IllegalArgumentException("Text file input argument is missing");

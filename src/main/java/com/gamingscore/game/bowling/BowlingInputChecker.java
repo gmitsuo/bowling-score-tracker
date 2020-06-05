@@ -10,7 +10,7 @@ public class BowlingInputChecker {
 
 	public static final Pattern ROUND_INPUT_MATCHER = Pattern.compile("^(?<playerName>.+)\\t(?<roundScore>[0-9]{1,2}|F)\\s*$");
 
-	public String[] checkInput(int lineIdx, String inputRow) {
+	public String[] checkInput(final int lineIdx, final String inputRow) {
 
 		var playerRoundMatcher = ROUND_INPUT_MATCHER.matcher(inputRow);
 

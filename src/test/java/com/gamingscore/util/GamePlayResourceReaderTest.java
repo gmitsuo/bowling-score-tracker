@@ -31,7 +31,7 @@ class GamePlayResourceReaderTest {
 		new GamePlayResourceReader(gameControllerFactory).play(resource, BOWLING);
 
 		verify(gameController, times(5)).checkInput(anyInt(), anyString());
-		verify(gameController, times(5)).toGameRound(any(String[].class));
+		verify(gameController, times(5)).toGameRound("JohnDoe", "F");
 		verify(gameController, times(5)).playRound(any());
 		verify(gameController, times(1)).disployResults();
 	}

@@ -13,7 +13,7 @@ public interface GameController<T> {
 	 * @param rowInputs
 	 * @return
 	 */
-	T toGameRound(String[] rowInputs);
+	T toGameRound(String... rowInputs);
 
 	/**
 	 * @param round

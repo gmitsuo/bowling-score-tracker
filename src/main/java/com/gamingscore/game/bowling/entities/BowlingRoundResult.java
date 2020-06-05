@@ -10,7 +10,7 @@ public class BowlingRoundResult {
 
 	private final String pinFalls;
 
-	public BowlingRoundResult(String pinFalls) {
+	public BowlingRoundResult(final String pinFalls) {
 		this.pinFalls = pinFalls;
 	}
 
@@ -19,7 +19,7 @@ public class BowlingRoundResult {
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		BowlingRoundResult that = (BowlingRoundResult) o;

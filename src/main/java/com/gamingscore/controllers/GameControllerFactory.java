@@ -10,7 +10,7 @@ import static com.gamingscore.game.RoundBasedGame.BOWLING;
 
 public class GameControllerFactory {
 
-	public GameController getGameController(RoundBasedGame game) {
+	public GameController getGameController(final RoundBasedGame game) {
 
 		if (BOWLING.equals(game)) {
 			return new BowlingController(new BowlingGame(), new BowlingInputChecker(), new BowlingScoreDisplay());

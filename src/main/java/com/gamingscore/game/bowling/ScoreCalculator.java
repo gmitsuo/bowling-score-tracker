@@ -9,7 +9,7 @@ import static java.lang.Integer.parseInt;
 
 public class ScoreCalculator {
 
-	public void calculate(List<Frame> frames) {
+	public void calculate(final List<Frame> frames) {
 
 		for (int i = 0; i < frames.size(); i++) {
 			var firstFrame = frames.get(i);
@@ -19,7 +19,7 @@ public class ScoreCalculator {
 		}
 	}
 
-	public void calculateFrameScore(Frame frame, Frame next, Frame afterNext) {
+	public void calculateFrameScore(final Frame frame, final Frame next, final Frame afterNext) {
 
 		var pinfalls = frame.getPinfalls();
 		frame.addScore(pinfalls);

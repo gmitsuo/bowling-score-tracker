@@ -19,7 +19,7 @@ public class BowlingPlayerScoring {
 	private Integer currentFrameId;
 	private Frame currentFrame;
 
-	public BowlingPlayerScoring(BowlingPlayer player) {
+	public BowlingPlayerScoring(final BowlingPlayer player) {
 		this.player = player;
 		this.currentFrameId = 1;
 		this.frames = new ArrayList<>(10);
@@ -34,7 +34,7 @@ public class BowlingPlayerScoring {
 		return frames;
 	}
 
-	public void addPlay(BowlingRoundResult roundResult) {
+	public void addPlay(final BowlingRoundResult roundResult) {
 
 		if (currentFrameId > 10) {
 			throw new BowlingGameException(String.format("Bowling games must have only 10 frames per player. Player %s has more than 10 frames", this.player.getName()));
@@ -48,7 +48,7 @@ public class BowlingPlayerScoring {
 		}
 	}
 
-	private Frame getNextFrame(Integer frameId) {
+	private Frame getNextFrame(final Integer frameId) {
 
 		if (this.currentFrameId > LAST_FRAME) {
 			return null;
@@ -68,7 +68,7 @@ public class BowlingPlayerScoring {
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		BowlingPlayerScoring that = (BowlingPlayerScoring) o;

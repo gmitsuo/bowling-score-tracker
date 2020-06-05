@@ -18,7 +18,7 @@ public class Frame {
 	protected String secondPlay;
 	protected Frame previous;
 
-	public Frame(Integer id) {
+	public Frame(final Integer id) {
 		this.id = id;
 		this.score = 0;
 	}
@@ -27,11 +27,11 @@ public class Frame {
 		return score;
 	}
 
-	public void setPrevious(Frame previous) {
+	public void setPrevious(final Frame previous) {
 		this.previous = previous;
 	}
 
-	public void addPlay(String pinFall) {
+	public void addPlay(final String pinFall) {
 
 		if (firstPlay == null){
 			this.firstPlay = pinFall;
@@ -69,7 +69,7 @@ public class Frame {
 				(this.secondPlay != null && !FOUL.equals(this.secondPlay) ? parseInt(this.secondPlay) : 0);
 	}
 
-	public void addScore(Integer bonusScore) {
+	public void addScore(final Integer bonusScore) {
 		this.score += bonusScore;
 	}
 
@@ -110,7 +110,7 @@ public class Frame {
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Frame frame = (Frame) o;

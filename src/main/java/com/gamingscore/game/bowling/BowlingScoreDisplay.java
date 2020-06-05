@@ -11,7 +11,7 @@ public class BowlingScoreDisplay {
 
 	private static final String CARET_RETURN_LINE_FEED = "\r\n";
 
-	public void display(Collection<BowlingPlayerScoring> scores) {
+	public void display(final Collection<BowlingPlayerScoring> scores) {
 
 		final StringBuilder resultMsg = new StringBuilder("Frame\t\t1\t\t2\t\t3\t\t4\t\t5\t\t6\t\t7\t\t8\t\t9\t\t10");
 		resultMsg.append(CARET_RETURN_LINE_FEED);

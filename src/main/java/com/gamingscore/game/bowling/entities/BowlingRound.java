@@ -8,7 +8,7 @@ public class BowlingRound {
 	private final String player;
 	private final BowlingRoundResult roundResult;
 
-	public BowlingRound(String player, BowlingRoundResult roundResult) {
+	public BowlingRound(final String player, final BowlingRoundResult roundResult) {
 		this.player = player;
 		this.roundResult = roundResult;
 	}
@@ -22,7 +22,7 @@ public class BowlingRound {
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		BowlingRound that = (BowlingRound) o;

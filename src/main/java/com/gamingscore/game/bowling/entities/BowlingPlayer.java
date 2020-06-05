@@ -9,7 +9,7 @@ public class BowlingPlayer implements Player {
 
 	private final String name;
 
-	public BowlingPlayer(String name) {
+	public BowlingPlayer(final String name) {
 		this.name = name;
 	}
 
@@ -19,7 +19,7 @@ public class BowlingPlayer implements Player {
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		BowlingPlayer that = (BowlingPlayer) o;

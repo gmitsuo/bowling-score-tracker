@@ -16,7 +16,7 @@ public class BowlingGame {
 		this.scoreCalculator = new ScoreCalculator();
 	}
 
-	public void addRound(BowlingRound round) {
+	public void addRound(final BowlingRound round) {
 
 		var playerName = round.getPlayer();
 		var roundResult = round.getRoundResult();
