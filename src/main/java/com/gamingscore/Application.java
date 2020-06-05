@@ -17,12 +17,12 @@ public class Application {
             throw new IllegalArgumentException("Text file input argument is missing");
         }
 
-        File file = new File(args[0]);
+        final File file = new File(args[0]);
 
-        var gamePlayResourceReader = new GamePlayResourceReader(new GameControllerFactory());
+        final var gamePlayResourceReader = new GamePlayResourceReader(new GameControllerFactory());
 
         try {
-            var resource = new FileInputStream(file);
+            final var resource = new FileInputStream(file);
             gamePlayResourceReader.play(resource, BOWLING);
         }
         catch (FileNotFoundException e) {

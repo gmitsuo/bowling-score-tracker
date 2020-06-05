@@ -12,14 +12,14 @@ public class BowlingInputChecker {
 
 	public String[] checkInput(final int lineIdx, final String inputRow) {
 
-		var playerRoundMatcher = ROUND_INPUT_MATCHER.matcher(inputRow);
+		final var playerRoundMatcher = ROUND_INPUT_MATCHER.matcher(inputRow);
 
 		if (!playerRoundMatcher.find()) {
 			throw new BowlingGameInputException("First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.", lineIdx);
 		}
 
-		var playerName = playerRoundMatcher.group("playerName");
-		var result = playerRoundMatcher.group("roundScore");
+		final var playerName = playerRoundMatcher.group("playerName");
+		final var result = playerRoundMatcher.group("roundScore");
 
 		if (!FOUL.equals(result) && Integer.parseInt(result) > 10) {
 			throw new BowlingGameInputException("The second value must be between 0 and 10.", lineIdx);

@@ -71,7 +71,7 @@ public class BowlingPlayerScoring {
 	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		BowlingPlayerScoring that = (BowlingPlayerScoring) o;
+		final BowlingPlayerScoring that = (BowlingPlayerScoring) o;
 		return Objects.equals(player, that.player) &&
 				Objects.equals(currentFrame, that.currentFrame);
 	}

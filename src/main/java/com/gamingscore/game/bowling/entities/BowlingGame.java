@@ -18,8 +18,8 @@ public class BowlingGame {
 
 	public void addRound(final BowlingRound round) {
 
-		var playerName = round.getPlayer();
-		var roundResult = round.getRoundResult();
+		final var playerName = round.getPlayer();
+		final var roundResult = round.getRoundResult();
 		var playerScoring = scoring.get(playerName);
 
 		if (playerScoring == null) {

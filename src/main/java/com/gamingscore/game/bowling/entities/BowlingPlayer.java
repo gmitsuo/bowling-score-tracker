@@ -22,7 +22,7 @@ public class BowlingPlayer implements Player {
 	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		BowlingPlayer that = (BowlingPlayer) o;
+		final BowlingPlayer that = (BowlingPlayer) o;
 		return Objects.equals(name, that.name);
 	}
 

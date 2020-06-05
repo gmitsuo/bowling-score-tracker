@@ -113,7 +113,7 @@ public class Frame {
 	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		Frame frame = (Frame) o;
+		final Frame frame = (Frame) o;
 		return Objects.equals(id, frame.id) &&
 				Objects.equals(score, frame.score) &&
 				Objects.equals(firstPlay, frame.firstPlay) &&

@@ -25,7 +25,7 @@ public class BowlingRound {
 	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		BowlingRound that = (BowlingRound) o;
+		final BowlingRound that = (BowlingRound) o;
 		return Objects.equals(player, that.player) &&
 				Objects.equals(roundResult, that.roundResult);
 	}

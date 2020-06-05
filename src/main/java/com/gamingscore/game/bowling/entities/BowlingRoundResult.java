@@ -22,7 +22,7 @@ public class BowlingRoundResult {
 	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		BowlingRoundResult that = (BowlingRoundResult) o;
+		final BowlingRoundResult that = (BowlingRoundResult) o;
 		return Objects.equals(pinFalls, that.pinFalls);
 	}
 

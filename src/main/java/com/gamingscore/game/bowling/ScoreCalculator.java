@@ -12,20 +12,20 @@ public class ScoreCalculator {
 	public void calculate(final List<Frame> frames) {
 
 		for (int i = 0; i < frames.size(); i++) {
-			var firstFrame = frames.get(i);
-			var secondFrame = i + 1 < frames.size() ? frames.get(i + 1) : null;
-			var thirdFrame = i + 2 < frames.size() ? frames.get(i + 2) : null;
+			final var firstFrame = frames.get(i);
+			final var secondFrame = i + 1 < frames.size() ? frames.get(i + 1) : null;
+			final var thirdFrame = i + 2 < frames.size() ? frames.get(i + 2) : null;
 			this.calculateFrameScore(firstFrame, secondFrame, thirdFrame);
 		}
 	}
 
 	public void calculateFrameScore(final Frame frame, final Frame next, final Frame afterNext) {
 
-		var pinfalls = frame.getPinfalls();
+		final var pinfalls = frame.getPinfalls();
 		frame.addScore(pinfalls);
 
 		if (frame.isSpare() && next != null) {
-			var spareBonus = !FOUL.equals(next.getFirstPlay()) ? parseInt(next.getFirstPlay()) : 0;
+			final var spareBonus = !FOUL.equals(next.getFirstPlay()) ? parseInt(next.getFirstPlay()) : 0;
 			frame.addScore(spareBonus);
 		}
 		else if(frame.isStrike()) {
