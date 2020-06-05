@@ -18,13 +18,13 @@ public class BowlingInputChecker {
 			throw new BowlingGameInputException("First value must be the player's name. Second value must be a number between 0 and 10 or an 'F'.", lineIdx);
 		}
 
-		final var playerName = playerRoundMatcher.group("playerName");
 		final var result = playerRoundMatcher.group("roundScore");
 
 		if (!FOUL.equals(result) && Integer.parseInt(result) > 10) {
 			throw new BowlingGameInputException("The second value must be between 0 and 10.", lineIdx);
 		}
 
+		final var playerName = playerRoundMatcher.group("playerName");
 		return new String[]{playerName.trim(), result.trim()};
 	}
 }
