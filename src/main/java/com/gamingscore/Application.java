@@ -4,10 +4,11 @@ import com.gamingscore.controllers.GameControllerFactory;
 import com.gamingscore.util.GamePlayResourceReader;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Paths;
 
 import static com.gamingscore.game.RoundBasedGame.BOWLING;
+import static java.nio.file.Files.newInputStream;
 
 public class Application {
 
@@ -22,11 +23,11 @@ public class Application {
         final var gamePlayResourceReader = new GamePlayResourceReader(new GameControllerFactory());
 
         try {
-            final var resource = new FileInputStream(file);
+            final var resource = newInputStream(Paths.get(file.getCanonicalPath()));
             gamePlayResourceReader.play(resource, BOWLING);
         }
-        catch (FileNotFoundException e) {
-            throw new IllegalArgumentException("Text file input argument is invalid. File "+ file + " not found", e);
+        catch (IOException e) {
+            throw new IllegalArgumentException("Text file input argument is invalid. File "+ file + " not found or corrupt", e);
         }
     }
 }

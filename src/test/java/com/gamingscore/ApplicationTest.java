@@ -19,7 +19,7 @@ class ApplicationTest {
 
 		assertThatExceptionOfType(IllegalArgumentException.class)
 		.isThrownBy(() -> Application.main(new String[]{"gameinputs/not-existing-file.txt"}))
-		.withMessage("Text file input argument is invalid. File gameinputs/not-existing-file.txt not found");
+		.withMessage("Text file input argument is invalid. File gameinputs/not-existing-file.txt not found or corrupt");
 	}
 
 	@Test
