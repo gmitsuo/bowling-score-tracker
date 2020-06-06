@@ -63,7 +63,7 @@ public class Frame {
 	}
 
 	public boolean isComplete() {
-		return isStrike() || (firstPlay != null && secondPlay != null);
+		return isStrike() || firstPlay != null && secondPlay != null;
 	}
 
 	public Integer getPinfalls() {
@@ -94,7 +94,7 @@ public class Frame {
 		}
 
 		return !FOUL.equals(this.firstPlay) && !FOUL.equals(this.secondPlay) &&
-				((parseInt(this.firstPlay) + parseInt(this.secondPlay)) == 10);
+				parseInt(this.firstPlay) + parseInt(this.secondPlay) == 10;
 	}
 
 	public boolean isStrike() {
